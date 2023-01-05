@@ -23,7 +23,11 @@ steps:
       arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
       publishTestResults: true
       projects: 'MyTestLibrary' # update with your test project directory
-    
+  - task: PublishBuildArtifacts@1
+    inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish code coverage report'
     inputs:
