@@ -38,4 +38,4 @@ steps:
       deployToSlotOrASE: true
       ResourceGroupName: '3_group'
       SlotName: 'production'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      
