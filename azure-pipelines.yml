@@ -41,6 +41,12 @@ steps:
     projects: 'src/pipelines-dotnet-core.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
+  - task: AzureWebApp@1
+  inputs:
+    azureSubscription: '174999c7-7b3d-4fe4-a72d-bfdb58e6385a'
+    appType: 'webAppLinux'
+    appName: 'pipeline-dotnet-core'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
