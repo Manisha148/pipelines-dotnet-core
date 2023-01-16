@@ -38,4 +38,4 @@ steps:
       deployToSlotOrASE: true
       ResourceGroupName: '3_group'
       SlotName: 'production'
-      
+      package: '$pipelines-dotnet-core/blob/master/azure-pipelines.yml/**/*.zip'
