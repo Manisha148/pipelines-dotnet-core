@@ -29,3 +29,13 @@ steps:
     inputs:
       codeCoverageTool: 'Cobertura'
       summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Azure for Students Starter (174999c7-7b3d-4fe4-a72d-bfdb58e6385a)'
+      appType: 'webApp'
+      WebAppName: 'taskdotnet'
+      deployToSlotOrASE: true
+      ResourceGroupName: '3_group'
+      SlotName: 'production'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
